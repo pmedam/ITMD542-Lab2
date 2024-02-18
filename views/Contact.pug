@@ -1,8 +1,6 @@
-doctype html
-html
-  head
-    title Contact Form
-  body
+extends layout
+
+block content
     h1 Contact Form
     form(action="/submit-contact" method="post")
       label(for="firstName") First Name:

@@ -1,18 +1,46 @@
 extends layout
 
 block content
-    h1 Contact Form
-    form(action="/submit-contact" method="post")
-      label(for="firstName") First Name:
-      input(type="text" id="firstName" name="firstName" required)
-      br
-      label(for="lastName") Last Name:
-      input(type="text" id="lastName" name="lastName" required)
-      br
-      label(for="email") Email Address:
-      input(type="email" id="email" name="email")
-      br
-      label(for="notes") Notes:
-      textarea(id="notes" name="notes" rows="4" cols="50")
-      br
-      button(type="submit") Submit
+  style.
+    .outer-window {
+      background-color: #f0f0f0; /* Light gray background for outer window */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+    .inner-window {
+      background-color: #fff; /* White background for inner window */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+    label {
+      color: #333; /* Text color for labels */
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Text shadow effect */
+    }
+    button.btn.btn-primary {
+      background-color: #007bff; /* Blue color for button */
+      border-color: #007bff; /* Border color for button */
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Text shadow effect */
+    }
+
+  .container-fluid.outer-window
+    .row.justify-content-center.mt-5
+      .col-10.col-md-6.col-lg-4.inner-window
+        .card
+          .card-body
+            h1.card-title.mb-4 CONTACT FORM
+            form(action="/submit-contact" method="post")
+              .form-group
+                label(for="firstName") First Name:
+                input.form-control(type="text" id="firstName" name="firstName" required)
+              .form-group
+                label(for="lastName") Last Name:
+                input.form-control(type="text" id="lastName" name="lastName" required)
+              .form-group
+                label(for="email") Email Address:
+                input.form-control(type="email" id="email" name="email")
+              .form-group
+                label(for="notes") Notes:
+                textarea.form-control(id="notes" name="notes" rows="4" cols="50")
+              button.btn.btn-primary.btn-block(type="submit") Submit

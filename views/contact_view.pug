@@ -1,24 +1,15 @@
 extends layout
 
 block content
-    div.container
+    .container
         h2.text-center Contact List
-            .card.mx-auto
-                .card-body
-                    table.table.table-bordered.table-striped.text-center
-                        thead
-                            tr
-                                th First Name
-                                th Last Name
-                                th Email Address
-                                th Notes
-                                th Actions
-                        tbody
-                            tr
-                                td= contact.firstName
-                                td= contact.lastName
-                                td= contact.email
-                                td= contact.notes
-                                td
-                                    a.btn.btn-primary.btn-sm(href=`/contact_edit/${contact.id}`, role = "button") Edit
-                                    a.btn.btn-danger.btn-sm(href=`/contact_delete/${contact.id}`, role = "button") Delete
+        .card.mb-3
+            .card-header.text-center
+                h5.card-title #{contact.firstName} #{contact.lastName}
+            .card-body
+                p.card-text Email: #{contact.email}
+                p.card-text Notes: #{contact.notes}
+                p.card-text Date: #{contact.date}
+            .card-footer.text-center
+                a.btn.btn-primary.btn-sm(href=`/contact_edit/${contact.id}`, role="button") Edit
+                a.btn.btn-danger.btn-sm(href=`/contact_delete/${contact.id}`, role="button") Delete

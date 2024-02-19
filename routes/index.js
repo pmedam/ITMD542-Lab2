@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
 });
 
 /*GET contacts listing. */
-router.get('/contact_list', function(req, res, next) {
+router.get('/contacts', function(req, res, next) {
   const data = contactsRepo.findAll();
-  res.render('contact_list', {title: "All Contacts!", contacts: data, errors: null});
+  res.render('contacts', {title: "All Contacts!", contacts: data, errors: null});
 });
 
 /*Get new contact*/
@@ -34,8 +34,53 @@ function (req, res, next){
   }
   else{
     contactsRepo.create(new Contact('', req.body.firstName, req.body.lastName, req.body.email, req.body.notes));
-    res.redirect('/contact_list');
+    res.redirect('/contacts');
   }
 });
+
+/*Get view contact*/
+router.get('/contact_view/:id', function(req, res, next) {
+  const cId = req.params.id;
+  const contact = contactsRepo.findById(cId);
+  res.render('contact_view', {title: "View Contact", contact: contact, errors: null});
+})
+
+
+
+
+// /*Get new contact*/
+// router.get('/contact_edit/:id/edit', function(req, res, next) {
+//   const cId = req.params.id;
+//   const contact = contactsRepo.findById(cId);
+//   res.render('contact_edit', {title: "Edit Contact", errors: null});
+// })
+
+// /*Post edit Contact form*/
+// router.post('/contact_edit',
+// body('firstName', 'First Name must not be empty.').notEmpty(),
+// body('lastName', 'Last Name must not be empty.').notEmpty(),
+// body('email', 'Email must not be empty.').notEmpty(),
+// function (req, res, next){
+//   const results = validationResult(req);
+
+  
+// })
+
+/* GET contact delete form. */
+router.get('/contact_delete/:id/delete', function (req, res, next) {
+  const contactId = req.params.id;
+  res.render('contact_delete', {id: contactId});
+});
+
+
+/* POST contact delete. */
+router.post('/contact_delete/:id/delete',function(req,res, next){
+  const contactId = req.params.id;
+  contactsRepo.deleteById(contactId);
+  res.redirect('/contacts');
+}
+)
+
+
 
 module.exports = router;

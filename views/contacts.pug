@@ -12,7 +12,6 @@ block content
                             th First Name
                             th Last Name
                             th Email Address
-                            th Notes
                             th Actions
                     tbody
                         each contact in contacts
@@ -20,10 +19,10 @@ block content
                                 td= contact.firstName
                                 td= contact.lastName
                                 td= contact.email
-                                td= contact.notes
                                 td
-                                    button.btn.btn-primary.btn-sm Edit
-                                    button.btn.btn-danger.btn-sm Delete
+                                    a.btn.btn-primary.btn-sm(href=`/contact_view/${contact.id}`, role = "button") View
+                                    //- a.btn.btn-primary.btn-sm(href="/contact_edit", role = "button") Edit
+                                    //- a.btn.btn-danger.btn-sm(href="/contact_delete", role = "button") Delete
 
         // Button to add contact
         .container.text-center

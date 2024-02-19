@@ -1,46 +1,24 @@
 extends layout
 
 block content
-  style.
-    .outer-window {
-      background-color: #f0f0f0; /* Light gray background for outer window */
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    }
-    .inner-window {
-      background-color: #fff; /* White background for inner window */
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    }
-    label {
-      color: #333; /* Text color for labels */
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Text shadow effect */
-    }
-    button.btn.btn-primary {
-      background-color: #007bff; /* Blue color for button */
-      border-color: #007bff; /* Border color for button */
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Text shadow effect */
-    }
-
-  .container-fluid.outer-window
-    .row.justify-content-center.mt-5
-      .col-10.col-md-6.col-lg-4.inner-window
-        .card
-          .card-body
-            h1.card-title.mb-4 CONTACT FORM
-            form(action="/contact_view" method="post")
-              .form-group
-                label(for="firstName") First Name:
-                input.form-control(type="text" id="firstName" name="firstName" value=contact.firstName)
-              .form-group
-                label(for="lastName") Last Name:
-                input.form-control(type="text" id="lastName" name="lastName" value=contact.lastName)
-              .form-group
-                label(for="email") Email Address:
-                input.form-control(type="email" id="email" name="email" value=contact.email)
-              .form-group
-                label(for="notes") Notes:
-                textarea.form-control(id="notes" name="notes" rows="4" cols="50")
-              button.btn.btn-primary.btn-block(type="submit") Submit
+    div.container
+        h2.text-center Contact List
+            .card.mx-auto
+                .card-body
+                    table.table.table-bordered.table-striped.text-center
+                        thead
+                            tr
+                                th First Name
+                                th Last Name
+                                th Email Address
+                                th Notes
+                                th Actions
+                        tbody
+                            tr
+                                td= contact.firstName
+                                td= contact.lastName
+                                td= contact.email
+                                td= contact.notes
+                                td
+                                    a.btn.btn-primary.btn-sm(href=`/contact_edit/${contact.id}`, role = "button") Edit
+                                    a.btn.btn-danger.btn-sm(href=`/contact_delete/${contact.id}`, role = "button") Delete

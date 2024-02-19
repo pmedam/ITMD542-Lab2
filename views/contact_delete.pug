@@ -4,7 +4,7 @@ block content
   h1= title
   p Are you sure you want to delete the following Todo?
   hr
-  form(method='POST' action=`/contact_delete/${contactId}/delete`)
+  form(method='POST' action=`/contact_delete/${contactId}`)
     button(type='submit') Confirm Delete
     | 
     a(href=`/contact_delete/${contactId}`) Cancel

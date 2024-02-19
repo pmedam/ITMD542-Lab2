@@ -46,18 +46,18 @@ router.get('/contact_view/:id', function(req, res, next) {
 })
 
 /*Post view contact*/
-router.post('/contact_view/:id/',function(req,res, next){
+router.post('/contact_view/:id/',function(req, res, next){
   const cId = req.params.id;
+
+
 })
 
-
-
-// /*Get new contact*/
-// router.get('/contact_edit/:id/edit', function(req, res, next) {
-//   const cId = req.params.id;
-//   const contact = contactsRepo.findById(cId);
-//   res.render('contact_edit', {title: "Edit Contact", errors: null});
-// })
+/*Get new contact*/
+router.get('/contact_edit/:id', function(req, res, next) {
+  const cId = req.params.id;
+  const contact = contactsRepo.findById(cId);
+  res.render('contact_edit', {title: "Edit Contact", contact: contact, errors: null});
+})
 
 // /*Post edit Contact form*/
 // router.post('/contact_edit',
@@ -71,19 +71,18 @@ router.post('/contact_view/:id/',function(req,res, next){
 // })
 
 /* GET contact delete form. */
-router.get('/contact_delete/:id/delete', function (req, res, next) {
-  const contactId = req.params.id;
-  res.render('contact_delete', {id: contactId});
+router.get('/contact_delete/:id', function (req, res, next) {
+  const contactId = contactsRepo.findById(req.params.id);
+  res.render('contact_delete', {title: 'Delete Contact', contact: contact});
 });
 
 
 /* POST contact delete. */
-router.post('/contact_delete/:id/delete',function(req,res, next){
-  const contactId = req.params.id;
-  contactsRepo.deleteById(contactId);
+router.post('/contact_delete/:id',function(req,res, next){
+  contactsRepo.deleteById(req.params.id);
   res.redirect('/contacts');
 }
-)
+);
 
 
 

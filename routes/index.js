@@ -16,7 +16,12 @@ router.get('/contact_list', function(req, res, next) {
   res.render('contact_list', {title: "All Contacts!", contacts: data, errors: null});
 });
 
-/* GET new contact. */
+/*Get new contact*/
+router.get('/contact_add', function(req, res, next) {
+  res.render('contact_add', {title: "Add Contact", errors: null});
+})
+
+/* Post new contact. */
 router.post('/contact_add',
 body('firstName', 'First Name must not be empty.').notEmpty(),
 body('lastName', 'Last Name must not be empty.').notEmpty(),
@@ -29,7 +34,7 @@ function (req, res, next){
   }
   else{
     contactsRepo.create(new Contact('', req.body.firstName, req.body.lastName, req.body.email, req.body.notes));
-    res.direct('/contact_list');
+    res.redirect('/contact_list');
   }
 });
 

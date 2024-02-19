@@ -33,7 +33,7 @@ router.post('/contact_add',
       res.render('contact_add', { title: "Add Contact", errors: results.array() });
     }
     else {
-      contactsRepo.create(new Contact('', req.body.firstName, req.body.lastName, req.body.email, req.body.notes));
+      contactsRepo.create(new Contact('', req.body.firstName.trim(), req.body.lastName.trim(), req.body.email, req.body.notes));
       res.redirect('/contacts');
     }
   });
@@ -68,7 +68,7 @@ router.post('/contact_edit/:id', function (req, res, next) {
     res.render(`contact_edit/${cId}`, { title: "Edit Contact", errors: result.array() });
   }
   else {
-    contactsRepo.update(new Contact(cId, req.body.firstName, req.body.lastName, req.body.email, req.body.notes));
+    contactsRepo.update(new Contact(cId, req.body.firstName.trim(), req.body.lastName.trim(), req.body.email, req.body.notes));
     res.redirect('/contacts');
   }
 });

@@ -30,7 +30,7 @@ block content
         .card
           .card-body
             h1.card-title.mb-4 CONTACT FORM
-            form(action="/contact_edit" method="post")
+            form(action=`/contact_edit/${contact.id}` method="post")
               .form-group
                 label(for="firstName") First Name:
                 input.form-control(type="text" id="firstName" name="firstName" value=contact.firstName required)

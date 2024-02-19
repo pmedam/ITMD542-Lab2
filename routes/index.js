@@ -17,7 +17,7 @@ router.get('/contact_list', function(req, res, next) {
 });
 
 /* GET new contact. */
-router.get('/contact_add',
+router.post('/contact_add',
 body('firstName', 'First Name must not be empty.').notEmpty(),
 body('lastName', 'Last Name must not be empty.').notEmpty(),
 body('email', 'Email must not be empty.').notEmpty(),
@@ -32,13 +32,5 @@ function (req, res, next){
     res.direct('/contact_list');
   }
 });
-
-/* Create new contact.*/
-
-router.post('/contact_add', function(req, res, next)
-{
-  const contact = new contact('', req.body.firstname, req.body.lastname, req.body.email, req.body.notes)
-  contactsRepo.create(contact)
-})
 
 module.exports = router;

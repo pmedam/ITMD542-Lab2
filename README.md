@@ -39,5 +39,21 @@ Honestly, I've followed the professor's video and and top of it used stackoverfl
 
 
 Below are the screenshots of the successful implementation of the whole project.
-
+**Index Page:**
 ![image](https://github.com/pmedam/ITMD542-Lab2/assets/142865611/11acc255-8b6c-498c-a318-8b0d903c99b5)
+
+**Contacts Page:**
+![image](https://github.com/pmedam/ITMD542-Lab2/assets/142865611/4950acaa-56d6-447f-bfc4-296a63861c3d)
+
+**Contact View Page:**
+![image](https://github.com/pmedam/ITMD542-Lab2/assets/142865611/a4c45909-4b19-488e-81cb-c45531342987)
+
+**Contact Edit Page:**
+![image](https://github.com/pmedam/ITMD542-Lab2/assets/142865611/c2147950-159c-49e4-b046-5097b461b6a5)
+
+**Contact Delete Page:**
+![image](https://github.com/pmedam/ITMD542-Lab2/assets/142865611/cb976ca4-97bf-4456-81cb-b84014280a28)
+
+
+
+

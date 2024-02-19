@@ -33,4 +33,12 @@ function (req, res, next){
   }
 });
 
+/* Create new contact.*/
+
+router.post('/contact_add', function(req, res, next)
+{
+  const contact = new contact('', req.body.firstname, req.body.lastname, req.body.email, req.body.notes)
+  contactsRepo.create(contact)
+})
+
 module.exports = router;

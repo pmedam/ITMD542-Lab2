@@ -4,24 +4,26 @@ block content
     title Contact List
     body
         h2.text-center Contact List
-        table.table.table-bordered.table-striped.mx-auto.text-center
-            thead
-                tr
-                    th Contact ID
-                    th First Name
-                    th Last Name
-                    th Email Address
-                    th Notes
-                    th Date/time created or last edited
-            tbody
-                each contact in contacts
-                    tr
-                        td= contact.contactID
-                        td= contact.firstName
-                        td= contact.lastName
-                        td= contact.emailAddress
-                        td= contact.notes
-                        td= contact.dateTime
+        .card.mx-auto
+            .card-body
+                table.table.table-bordered.table-striped.text-center
+                    thead
+                        tr
+                            th First Name
+                            th Last Name
+                            th Email Address
+                            th Notes
+                            th Actions
+                    tbody
+                        each contact in contacts
+                            tr
+                                td= contact.firstName
+                                td= contact.lastName
+                                td= contact.email
+                                td= contact.notes
+                                td
+                                    button.btn.btn-primary.btn-sm Edit
+                                    button.btn.btn-danger.btn-sm Delete
 
         // Button to add contact
         .container.text-center

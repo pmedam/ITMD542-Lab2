@@ -6,10 +6,6 @@ class Contact{
       this.email = email;
       this.notes = notes;
     }
-  
-    getName() {
-      return this.firstName +  " " + this.lastName;
-    }
   }
   
   module.exports = Contact;

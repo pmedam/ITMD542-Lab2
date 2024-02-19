@@ -45,6 +45,10 @@ router.get('/contact_view/:id', function(req, res, next) {
   res.render('contact_view', {title: "View Contact", contact: contact, errors: null});
 })
 
+/*Post view contact*/
+router.post('/contact_view/:id/',function(req,res, next){
+  const cId = req.params.id;
+})
 
 
 

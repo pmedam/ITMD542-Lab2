@@ -33,13 +33,13 @@ block content
             form(action="/contact_view" method="post")
               .form-group
                 label(for="firstName") First Name:
-                input.form-control(type="text" id="firstName" name="firstName" value=data.firstName)
+                input.form-control(type="text" id="firstName" name="firstName" value=contact.firstName)
               .form-group
                 label(for="lastName") Last Name:
-                input.form-control(type="text" id="lastName" name="lastName" value=data.lastName)
+                input.form-control(type="text" id="lastName" name="lastName" value=contact.lastName)
               .form-group
                 label(for="email") Email Address:
-                input.form-control(type="email" id="email" name="email" value=data.email)
+                input.form-control(type="email" id="email" name="email" value=contact.email)
               .form-group
                 label(for="notes") Notes:
                 textarea.form-control(id="notes" name="notes" rows="4" cols="50")
